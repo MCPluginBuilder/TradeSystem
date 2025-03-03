@@ -14,6 +14,7 @@ import de.codingair.tradesystem.spigot.trade.gui.TradingGUI;
 import de.codingair.tradesystem.spigot.trade.gui.layout.types.TradeIcon;
 import de.codingair.tradesystem.spigot.trade.gui.layout.utils.Perspective;
 import de.codingair.tradesystem.spigot.transfer.utils.ItemStackUtils;
+import de.codingair.tradesystem.spigot.utils.CompatibilityUtilPlayer;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -316,7 +317,7 @@ public class ProxyTrade extends Trade {
             PlayerInventory inventory = new PlayerInventory(this.player, false);
 
             if (inventory.getPlayer() != null) {
-                ItemStack item = inventory.getPlayer().getOpenInventory().getCursor();
+                ItemStack item = CompatibilityUtilPlayer.getCursor(inventory.getPlayer());
                 if (item != null && item.getType() != Material.AIR) inventory.addItem(item);
             }
 
