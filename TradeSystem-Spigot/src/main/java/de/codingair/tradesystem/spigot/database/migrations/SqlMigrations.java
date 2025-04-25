@@ -92,8 +92,11 @@ public abstract class SqlMigrations {
 
             for (String command : commands) {
                 try (Statement stmt = connect.createStatement()) {
+                    System.out.println(command);
                     stmt.execute(command);
                 }
+                System.out.println("Successfully executed!");
+                Thread.sleep(1000);
             }
         }
 
